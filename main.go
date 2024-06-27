@@ -53,9 +53,16 @@ ReadInput:
 		return
 	}
 
-	args := []string{"dd", "if=disk.img", "of=/dev/" + disks[i].Name, "status=progress"}
+	var imgFile string
+	imgFile = "/var/disk.img"
 
-	fmt.Println("DUMMY EXEC", args)
+	// @TODO offer choice of img files
+
+	args := []string{"dd", "if=" + imgFile, "of=/dev/" + disks[i].Name, "status=progress"}
+
+	fmt.Println("Executing: ", strings.Join(args, " "))
+
+	fmt.Println("@TODO...")
 
 	// @TODO Resync
 
